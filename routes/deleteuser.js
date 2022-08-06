@@ -11,15 +11,17 @@ router.get("/", (req, res, next) => {
   if (!req.query.uid) {
     return res.status(404).send("Invalid route");
   }
-  admin
-    .auth()
-    .deleteUser(req.query.uid)
-    .then(() => {
-      res.status(200).send("User Deleted From Firebase Auth");
-    })
-    .catch(function (error) {
-      res.status(200).send(error)
-    });
+  if (req.query.uid) {
+    admin
+      .auth()
+      .deleteUser(req.query.uid)
+      .then(() => {
+        res.status(200).send("User Deleted From Firebase Auth");
+      })
+      .catch(function (error) {
+        res.status(501).send(error);
+      });
+  }
 });
 
 module.exports = router;

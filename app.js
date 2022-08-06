@@ -2,7 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const app = express()
 const deleteuser = require('./routes/deleteuser')
+const cors = require('cors');
 
+const corsOption = {
+    origin: ['http://localhost:3000'],
+};
+app.use(cors(corsOption));
 // It parse body of each request
 app.use(bodyParser.urlencoded({extended:false}));
 
