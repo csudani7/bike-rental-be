@@ -5,7 +5,7 @@ const deleteuser = require('./routes/deleteuser')
 const cors = require('cors');
 
 const corsOption = {
-    origin: ['http://localhost:3000','http://localhost:5013','http://127.0.0.1:3000'],
+    origin: ['http://localhost:3000','http://localhost:5013','http://127.0.0.1:5013'],
 };
 app.use(cors(corsOption));
 // It parse body of each request
