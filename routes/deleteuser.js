@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const admin = require("firebase-admin");
 const serviceAccount = require("../serviceAccountKey.json");
-
+let i = 0;
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://bikes-rental-a4d84-default-rtdb.firebaseio.com",
@@ -25,4 +25,17 @@ router.get("/", (req, res) => {
   }
 });
 
+router.get("/process", (req, res) => {
+  if (i % 4 === 0) {
+    res.send({
+      statusCode: "200",
+      statusMessage: "Processing Started(or In Progress)",
+    });
+  } else {
+    res.send({
+      statusCode: String((i % 4) * 25),
+      statusMessage: "Processing Completed successfully",
+    });
+  }
+});
 module.exports = router;
