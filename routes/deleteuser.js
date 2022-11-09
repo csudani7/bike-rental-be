@@ -33,11 +33,11 @@ router.get("/process", (req, res) => {
       statusMessage: "Processing Started(or In Progress)",
     });
   } else {
-    i+=25;
     res.send({
       statusCode: "102",
       statusMessage: `Processing Completed successfully ${i}`
     });
+    i+=25;
   }
 });
 module.exports = router;
