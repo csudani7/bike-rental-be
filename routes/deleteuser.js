@@ -34,7 +34,7 @@ router.get("/process", (req, res) => {
   } else {
     res.send({
       statusCode: "102",
-      statusMessage: `Processing Completed successfully ${String((i % 4) * 25)}`,
+      statusMessage: `Processing Completed successfully ${String((i % 4) * 25)}`
     });
   }
   i++
