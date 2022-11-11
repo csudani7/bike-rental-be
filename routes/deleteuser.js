@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/process", (req, res) => {
-  if (i === 100) {
+  if (i === 150) {
     i=0;
     res.send({
       statusCode: "200",
